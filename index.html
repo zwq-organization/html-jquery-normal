@@ -2,12 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>系统</title>
 
     <link rel="stylesheet" href="./css/animate.css">
     <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/element.css">
+    <link rel="stylesheet" href="./css/comm.css">
     <link rel="stylesheet" href="./css/index.css">
 
     <script src="./js/jquery.min.js"></script>
@@ -15,8 +17,28 @@
     <script src="js/index.js"></script>
 </head>
 <body class="scrollbar-body-y">
-    <div class="home_wrap">
+    <div id="home_vue" class="home_vue" v-cloak>
 
 
     </div>
 </body>
+
+<script type="text/javascript" src="./js/vue.min.js"></script>
+<script type="text/javascript" src="./js/element.js"></script>
+
+<script>
+    var vue = new Vue({
+        el: "#home_vue",
+        data:{
+            nowClientWidth: document.documentElement.clientWidth,
+        },
+        methods: {
+            nowSize(val, initWidth = 1920) {
+                return val * (this.nowClientWidth / initWidth);
+            },
+        },
+        mounted() {
+
+        }
+    }
+</script>
